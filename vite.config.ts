@@ -8,12 +8,11 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    allowedHosts: ['mcbeuty.adsmedia.agency'], // ✅ adăugat aici
+    allowedHosts: ['instalator.ruggedradiance.store'], // ← domeniul corect aici!
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
