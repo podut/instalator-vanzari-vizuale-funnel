@@ -3,12 +3,17 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    allowedHosts: ['instalator.ruggedradiance.store'], // ← domeniul corect aici!
+    allowedHosts: ['instalator.ruggedradiance.store'],
+  },
+  build: {
+    outDir: "public",
+    emptyOutDir: true,
+    minify: true,
+    sourcemap: false
   },
   plugins: [
     react(),
