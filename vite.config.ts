@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    allowedHosts: ['instalator.ruggedradiance.store'],
+    allowedHosts: ['instalatiisanitarepro.ro'],
   },
   build: {
     outDir: "public",
