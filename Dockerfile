@@ -1,29 +1,22 @@
-FROM node:18-alpine AS builder
+# Dockerfile pentru deployment simplu cu npm start
+FROM node:18-alpine
 
 WORKDIR /app
 
-# Copiază package.json și package-lock.json
+# Copiază fișierele de dependențe
 COPY package*.json ./
 
 # Instalează dependențele
-RUN npm ci --only=production
+RUN npm install
 
-# Copiază codul sursă
+# Copiază tot codul sursă
 COPY . .
 
 # Build aplicația
 RUN npm run build
 
-# Etapa de producție
-FROM nginx:alpine
+# Expune portul 8080
+EXPOSE 8080
 
-# Copiază build-ul din etapa anterioară
-COPY --from=builder /app/publish /usr/share/nginx/html
-
-# Configurație nginx pentru SPA
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expune portul 80
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Pornește aplicația cu npm start
+CMD ["npm", "start"]
