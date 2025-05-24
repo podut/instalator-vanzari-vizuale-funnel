@@ -29,7 +29,7 @@ const HeroSection = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight">
               Instalații Sanitare Pro
             </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-plumber-100/90 max-w-lg mx-auto md:mx-0 font-light">
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white max-w-lg mx-auto md:mx-0 font-light">
               Servicii rapide și de încredere pentru toate nevoile dvs. de instalații sanitare în Baia Mare și județul Maramureș.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -61,7 +61,7 @@ const HeroSection = () => {
                   />
                 ))}
               </div>
-              <span className="ml-4 text-plumber-100/90">
+              <span className="ml-4 text-white">
                 <span className="font-bold text-white">Mulți</span> clienți mulțumiți
               </span>
             </div>
@@ -80,7 +80,7 @@ const HeroSection = () => {
                 className="absolute bottom-4 right-4 w-[90%] max-w-xs md:max-w-sm bg-white p-4 rounded-xl shadow-lg flex items-center gap-3 z-10 md:w-auto md:right-4 md:bottom-4"
                 style={{ minWidth: '220px' }}
               >
-                <div className="bg-plumber-100 p-2 rounded-lg">
+                <div className="bg-plumber-50 p-2 rounded-lg">
                   <Phone className="h-6 w-6 text-plumber-600" />
                 </div>
                 <div>

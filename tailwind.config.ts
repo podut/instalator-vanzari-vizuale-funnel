@@ -63,18 +63,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for plumber theme
+				// Custom colors for plumber theme - Updated for better contrast
 				plumber: {
-					50: '#E3F2FD',
-					100: '#BBDEFB',
-					200: '#90CAF9',
-					300: '#64B5F6',
-					400: '#42A5F5',
-					500: '#1E88E5',  // Primary
-					600: '#1976D2',
-					700: '#1565C0',  // Dark
-					800: '#0D47A1',
-					900: '#0A2E65',
+					50: 'hsl(var(--plumber-50))',
+					100: 'hsl(var(--plumber-100))',
+					200: 'hsl(var(--plumber-200))',
+					300: 'hsl(var(--plumber-300))',
+					400: 'hsl(var(--plumber-400))',
+					500: 'hsl(var(--plumber-500))',
+					600: 'hsl(var(--plumber-600))',
+					700: 'hsl(var(--plumber-700))',
+					800: 'hsl(var(--plumber-800))',
+					900: 'hsl(var(--plumber-900))',
 				}
 			},
 			borderRadius: {

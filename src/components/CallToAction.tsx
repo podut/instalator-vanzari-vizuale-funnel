@@ -9,7 +9,7 @@ const CallToAction = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ai nevoie de un instalator profesionist?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
             Contactează-ne acum pentru o evaluare gratuită și o ofertă personalizată pentru nevoile tale.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

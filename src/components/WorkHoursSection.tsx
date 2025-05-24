@@ -31,11 +31,11 @@ const WorkHoursSection = () => {
                   <Clock className="h-8 w-8 mr-3" />
                   <h3 className="text-2xl font-bold">Orarul Nostru</h3>
                 </div>
-                <p className="text-plumber-100 mb-6">
+                <p className="text-white mb-6">
                   Echipa noastră este disponibilă în intervalele orare de mai jos. Pentru situații de urgență, vă rugăm să ne contactați telefonic.
                 </p>
                 <div className="bg-plumber-700 p-4 rounded-lg">
-                  <div className="flex items-center text-plumber-100">
+                  <div className="flex items-center text-white">
                     <div className="h-2 w-2 bg-green-400 rounded-full mr-2"></div>
                     <span>Disponibil 24/7 pentru urgențe</span>
                   </div>

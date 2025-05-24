@@ -229,7 +229,7 @@ const ContactSection = () => {
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="h-12 w-12 rounded-full bg-plumber-100 flex items-center justify-center mr-4 flex-shrink-0">
+                    <div className="h-12 w-12 rounded-full bg-plumber-50 flex items-center justify-center mr-4 flex-shrink-0">
                       <Phone className="h-6 w-6 text-plumber-600" />
                     </div>
                     <div>
@@ -240,7 +240,7 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="h-12 w-12 rounded-full bg-plumber-100 flex items-center justify-center mr-4 flex-shrink-0">
+                    <div className="h-12 w-12 rounded-full bg-plumber-50 flex items-center justify-center mr-4 flex-shrink-0">
                       <Mail className="h-6 w-6 text-plumber-600" />
                     </div>
                     <div>
@@ -251,7 +251,7 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="h-12 w-12 rounded-full bg-plumber-100 flex items-center justify-center mr-4 flex-shrink-0">
+                    <div className="h-12 w-12 rounded-full bg-plumber-50 flex items-center justify-center mr-4 flex-shrink-0">
                       <MapPin className="h-6 w-6 text-plumber-600" />
                     </div>
                     <div>
@@ -270,10 +270,10 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
-                <div className="mt-8 bg-plumber-50 p-4 rounded-lg border border-plumber-100">
-                  <p className="font-medium text-plumber-700">Program de lucru:</p>
-                  <p className="text-plumber-600">Luni - Vineri: 08:00 - 18:00</p>
-                  <p className="text-plumber-600">Sâmbătă: 09:00 - 14:00</p>
+                <div className="mt-8 bg-plumber-50 p-4 rounded-lg border border-plumber-200">
+                  <p className="font-medium text-plumber-800">Program de lucru:</p>
+                  <p className="text-plumber-700">Luni - Vineri: 08:00 - 18:00</p>
+                  <p className="text-plumber-700">Sâmbătă: 09:00 - 14:00</p>
                 </div>
               </CardContent>
             </Card>

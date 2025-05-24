@@ -35,8 +35,11 @@ const AboutSection = () => {
                   className="absolute inset-0 w-full h-full object-cover rounded-2xl"
                   controls
                   playsInline
+                  preload="metadata"
                   poster="/butelie si centrala.jpeg"
+                  aria-label="Video prezentare servicii instalații sanitare"
                 >
+                  <track kind="captions" srcLang="ro" label="Română" default />
                   Browserul dvs. nu suportă tag-ul video.
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none rounded-2xl"></div>
@@ -45,7 +48,7 @@ const AboutSection = () => {
             
             <div className="space-y-4">
               <div className="flex items-start">
-                <div className="h-10 w-10 rounded-full bg-plumber-100 flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="h-10 w-10 rounded-full bg-plumber-50 flex items-center justify-center mr-4 flex-shrink-0">
                   <Home className="h-5 w-5 text-plumber-600" />
                 </div>
                 <div>
@@ -57,7 +60,7 @@ const AboutSection = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="h-10 w-10 rounded-full bg-plumber-100 flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="h-10 w-10 rounded-full bg-plumber-50 flex items-center justify-center mr-4 flex-shrink-0">
                   <Map className="h-5 w-5 text-plumber-600" />
                 </div>
                 <div>
@@ -69,7 +72,7 @@ const AboutSection = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="h-10 w-10 rounded-full bg-plumber-100 flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="h-10 w-10 rounded-full bg-plumber-50 flex items-center justify-center mr-4 flex-shrink-0">
                   <Users className="h-5 w-5 text-plumber-600" />
                 </div>
                 <div>
@@ -81,7 +84,7 @@ const AboutSection = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="h-10 w-10 rounded-full bg-plumber-100 flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="h-10 w-10 rounded-full bg-plumber-50 flex items-center justify-center mr-4 flex-shrink-0">
                   <Award className="h-5 w-5 text-plumber-600" />
                 </div>
                 <div>
@@ -110,8 +113,11 @@ const AboutSection = () => {
                 className="absolute inset-0 w-full h-full object-cover rounded-2xl"
                 controls
                 playsInline
+                preload="metadata"
                 poster="/butelie si centrala.jpeg"
+                aria-label="Video prezentare servicii instalații sanitare"
               >
+                <track kind="captions" srcLang="ro" label="Română" default />
                 Browserul dvs. nu suportă tag-ul video.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none rounded-2xl"></div>

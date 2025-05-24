@@ -14,6 +14,9 @@ export default defineConfig(({ mode }) => ({
     emptyOutDir: true,
     minify: true,
     sourcemap: false,
+    target: 'es2015',
+    cssCodeSplit: true,
+    reportCompressedSize: false, // Faster builds
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
@@ -34,6 +37,7 @@ export default defineConfig(({ mode }) => ({
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
           ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+          maps: ['leaflet', 'react-leaflet'],
         },
       },
     },

@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import { useSwipeable } from "react-swipeable";
+import { useHashNavigation } from "@/hooks/use-hash-navigation";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { scrollToSection } = useHashNavigation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +76,6 @@ const Header = () => {
       }
     },
     trackMouse: false, // Disable mouse tracking
-    preventDefaultTouchmoveEvent: true, // Prevent default touch behavior
     delta: 10, // Minimum swipe distance
     swipeDuration: 500, // Maximum swipe duration
   });
@@ -90,7 +91,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <a href="#" className={`font-bold text-2xl ${isScrolled ? "text-plumber-700" : "text-white"}`}>
+            <a href="/" className={`font-bold text-2xl ${isScrolled ? "text-plumber-700" : "text-white"}`}>
               Instalator<span className="text-plumber-500">Pro</span>
             </a>
           </div>
@@ -100,24 +101,36 @@ const Header = () => {
             <nav className={`${isScrolled ? "text-gray-700" : "text-white"}`}>
               <ul className="flex space-x-6">
                 <li>
-                  <a href="#services" className="hover:text-plumber-500 transition-colors">
+                  <button 
+                    onClick={() => scrollToSection('services')} 
+                    className="hover:text-plumber-500 transition-colors cursor-pointer"
+                  >
                     Servicii
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#process" className="hover:text-plumber-500 transition-colors">
+                  <button 
+                    onClick={() => scrollToSection('process')} 
+                    className="hover:text-plumber-500 transition-colors cursor-pointer"
+                  >
                     Cum funcționează
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#testimonials" className="hover:text-plumber-500 transition-colors">
+                  <button 
+                    onClick={() => scrollToSection('testimonials')} 
+                    className="hover:text-plumber-500 transition-colors cursor-pointer"
+                  >
                     Testimoniale
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-plumber-500 transition-colors">
+                  <button 
+                    onClick={() => scrollToSection('contact')} 
+                    className="hover:text-plumber-500 transition-colors cursor-pointer"
+                  >
                     Contact
-                  </a>
+                  </button>
                 </li>
               </ul>
             </nav>
@@ -190,25 +203,21 @@ const Header = () => {
           <nav className="px-4 py-4 overflow-y-auto">
             <ul className="space-y-1">
               {[
-                { href: "#services", label: "Servicii" },
-                { href: "#process", label: "Cum funcționează" },
-                { href: "#testimonials", label: "Testimoniale" },
-                { href: "#contact", label: "Contact" }
+                { section: "services", label: "Servicii" },
+                { section: "process", label: "Cum funcționează" },
+                { section: "testimonials", label: "Testimoniale" },
+                { section: "contact", label: "Contact" }
               ].map((item) => (
-                <li key={item.href}>
-                  <a 
-                    href={item.href} 
-                    className="block text-gray-700 hover:text-plumber-500 active:bg-gray-50 transition-colors py-3 px-4 rounded-lg"
+                <li key={item.section}>
+                  <button 
+                    className="block w-full text-left text-gray-700 hover:text-plumber-500 active:bg-gray-50 transition-colors py-3 px-4 rounded-lg"
                     onClick={() => {
                       setIsMobileMenuOpen(false);
-                      const element = document.querySelector(item.href);
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      }
+                      scrollToSection(item.section);
                     }}
                   >
                     {item.label}
-                  </a>
+                  </button>
                 </li>
               ))}
               <li className="pt-2 px-4">
