@@ -4,11 +4,14 @@ NODE_VERSION = "18"
 [phases.setup]
 nixPkgs = ["nodejs_18", "npm"]
 
+[phases.install]
+cmds = ["npm ci"]
+
 [phases.build]
-cmds = ["npm ci", "npm run build"]
+cmds = ["npm run build"]
 
 [phases.start]
-cmd = "npm start"
+cmd = "serve -s publish -l 3000"
 
 [staticAssets]
 "./publish" = "/"
