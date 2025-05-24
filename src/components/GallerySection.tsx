@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import ResponsiveImage from "@/components/ui/responsive-image";
 
 const localImages = [
 	{
@@ -124,11 +125,13 @@ const GallerySection = () => {
 							className="overflow-hidden group hover:shadow-xl transition-all duration-300 border-none shadow-md h-full flex flex-col"
 						>
 							<div className="relative overflow-hidden rounded-lg aspect-square group">
-								<img
+								<ResponsiveImage
 									className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-									src={item.filename}
+									src={item.filename.replace(/\.(jpeg|jpg|png|gif)$/i, ".webp")}
 									alt={item.title}
-									loading="lazy"
+									width={400}
+									height={400}
+									priority={idx < 3}
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
 									<p className="text-white text-lg font-medium">
