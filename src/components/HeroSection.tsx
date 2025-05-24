@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
+import ResponsiveImage from "@/components/ui/responsive-image";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -70,10 +71,13 @@ const HeroSection = () => {
           {/* Hero Image + Card Contact Responsive */}
           <div className="flex flex-col md:flex-row items-center md:items-end gap-0 md:gap-0 section-fade delay-200">
             <div className="relative w-full max-w-2xl mx-auto lg:mx-0 order-2 md:order-1">
-              <img
+              <ResponsiveImage
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover mt-6 sm:mt-0 transition-all duration-500 ease-in-out md:max-h-[480px] md:min-h-[320px] max-h-[320px] min-h-[180px]"
                 src="/butelie si centrala.jpeg"
                 alt="Instalator profesionist la lucru"
+                width={800}
+                height={480}
+                priority={true}
               />
               {/* Card contact: mereu in partea de jos a imaginii, latime max 320px, padding responsive */}
               <div

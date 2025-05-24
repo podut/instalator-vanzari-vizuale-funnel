@@ -4,16 +4,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Instalator Pro - Servicii de instalații sanitare profesionale</title>
+    <title>Instalator Pro - Montaj și Reparații Instalații Sanitare | Servicii Profesionale</title>
     <meta name="description" content="Servicii profesionale de instalații sanitare pentru locuințe și spații comerciale. Reparații rapide, montaj centrale termice și desfundare canalizare." />
     <meta name="author" content="Instalator Pro" />
+    <meta name="keywords" content="instalator, instalații sanitare, reparații, montaj centrală termică, desfundare canalizare, servicii profesionale, instalații termice" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
-    <meta property="og:title" content="Instalator Pro - Servicii de instalații sanitare profesionale" />
+    <meta property="og:title" content="Instalator Pro - Montaj și Reparații Instalații Sanitare | Servicii Profesionale" />
     <meta property="og:description" content="Servicii profesionale de instalații sanitare pentru locuințe și spații comerciale. Reparații rapide, montaj centrale termice și desfundare canalizare." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://instalatiisanitarepro.ro/" />
+    <meta property="og:image" content="https://instalatiisanitarepro.ro/butelie%20si%20centrala.jpeg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@instalatorpro" />
+    <meta name="twitter:title" content="Instalator Pro - Montaj și Reparații Instalații Sanitare" />
+    <meta name="twitter:description" content="Servicii profesionale de instalații sanitare, reparații rapide și montaj centrale termice." />
+    <meta name="twitter:image" content="https://instalatiisanitarepro.ro/butelie%20si%20centrala.jpeg" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,5 +39,45 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Schema.org microdata for local business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Instalator Pro",
+      "image": "https://instalatiisanitarepro.ro/butelie%20si%20centrala.jpeg",
+      "url": "https://instalatiisanitarepro.ro/",
+      "telephone": "+40123456789",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Strada Exemplu 123",
+        "addressLocality": "București",
+        "postalCode": "010101",
+        "addressCountry": "RO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.4268,
+        "longitude": 26.1025
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday"],
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "priceRange": "$$",
+      "servesCuisine": ["Instalații sanitare", "Instalații termice", "Reparații"]
+    }
+    </script>
   </body>
 </html>

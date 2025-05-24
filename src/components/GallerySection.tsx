@@ -82,11 +82,11 @@ const GallerySection = () => {
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center mb-10 sm:mb-12 section-fade">
 					<h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-						Galerie Proiecte
+						Galerie Proiecte Instalații Sanitare Profesionale
 					</h2>
 					<p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-						Explorează portofoliul nostru de lucrări și proiecte
-						finalizate
+						Explorează portofoliul nostru de lucrări și servicii de instalator profesionist. 
+						Proiecte de instalații sanitare și termice realizate de experți.
 					</p>
 				</div>
 
@@ -125,14 +125,23 @@ const GallerySection = () => {
 							className="overflow-hidden group hover:shadow-xl transition-all duration-300 border-none shadow-md h-full flex flex-col"
 						>
 							<div className="relative overflow-hidden rounded-lg aspect-square group">
-								<ResponsiveImage
-									className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-									src={item.filename.replace(/\.(jpeg|jpg|png|gif)$/i, ".webp")}
-									alt={item.title}
-									width={400}
-									height={400}
-									priority={idx < 3}
-								/>
+								<picture>
+									<source
+										srcSet={item.filename.replace(
+											/\.(jpeg|jpg|png|gif)$/i,
+											".webp"
+										)}
+										type="image/webp"
+									/>
+									<img
+										className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+										src={item.filename}
+										alt={item.title}
+										width={400}
+										height={400}
+										loading={idx < 3 ? "eager" : "lazy"} // Primele 3 imagini sunt eager
+									/>
+								</picture>
 								<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
 									<p className="text-white text-lg font-medium">
 										{item.title}
@@ -153,7 +162,7 @@ const GallerySection = () => {
 							variant="outline"
 							className="border-plumber-500 text-plumber-500 hover:bg-plumber-50 px-6 sm:px-8"
 						>
-							Vezi mai multe proiecte
+							Vezi mai multe proiecte de instalații sanitare
 						</Button>
 					</div>
 				)}
@@ -161,5 +170,3 @@ const GallerySection = () => {
 		</section>
 	);
 };
-
-export default GallerySection;
