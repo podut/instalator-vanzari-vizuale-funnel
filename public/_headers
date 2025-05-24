@@ -1,31 +1,51 @@
-# Cache static assets for 1 year
+# Cache static assets for 1 year (immutable with hash)
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Cache images for 6 months
+# Cache JavaScript and CSS bundles for 1 year
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images for 1 month (allow occasional updates)
 /*.jpg
-  Cache-Control: public, max-age=15552000
+  Cache-Control: public, max-age=2592000
 /*.jpeg
-  Cache-Control: public, max-age=15552000
+  Cache-Control: public, max-age=2592000
 /*.png
-  Cache-Control: public, max-age=15552000
+  Cache-Control: public, max-age=2592000
 /*.gif
-  Cache-Control: public, max-age=15552000
+  Cache-Control: public, max-age=2592000
 /*.svg
-  Cache-Control: public, max-age=15552000
+  Cache-Control: public, max-age=2592000
 /*.ico
   Cache-Control: public, max-age=15552000
 
-# Cache videos for 1 month
+# Cache videos for 3 months (large files, infrequent changes)
 /*.mp4
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=7776000
 /*.webm
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=7776000
+
+# Cache fonts for 1 year
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
 
 # Cache HTML for 1 hour (allow updates)
 /*.html
   Cache-Control: public, max-age=3600
 
-# Cache manifest and robots
+# Cache service worker for 1 hour (needs frequent updates)
+/sw.js
+  Cache-Control: public, max-age=3600
+
+# Cache manifest and robots for 1 day
 /robots.txt
+  Cache-Control: public, max-age=86400
+/manifest.json
   Cache-Control: public, max-age=86400
