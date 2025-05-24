@@ -100,73 +100,53 @@ const GallerySection = () => {
 									? "default"
 									: "outline"
 							}
-							size="sm"
-							className={`${
-								filter === category ||
-								(category === "Toate" && !filter)
-									? "bg-plumber-500 hover:bg-plumber-600"
-									: "text-gray-700 hover:text-plumber-600"
-							} text-sm sm:text-base`}
-							onClick={() =>
-								setFilter(
-									category === "Toate" ? null : category
-								)
-							}
+							className="rounded-full text-xs sm:text-sm px-3 py-1 sm:px-4 sm:py-2"
+							onClick={() => setFilter(category === "Toate" ? null : category)}
 						>
 							{category}
 						</Button>
 					))}
 				</div>
 
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 section-fade delay-200">
-					{filteredItems.map((item, idx) => (
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 section-fade delay-200">
+					{filteredItems.map((item, index) => (
 						<Card
-							key={item.filename}
-							className="overflow-hidden group hover:shadow-xl transition-all duration-300 border-none shadow-md h-full flex flex-col"
+							key={index}
+							className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out group"
 						>
-							<div className="relative overflow-hidden rounded-lg aspect-square group">
-								<picture>
-									<source
-										srcSet={item.filename.replace(
-											/\.(jpeg|jpg|png|gif)$/i,
-											".webp"
-										)}
-										type="image/webp"
-									/>
-									<img
-										className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-										src={item.filename}
-										alt={item.title}
-										width={400}
-										height={400}
-										loading={idx < 3 ? "eager" : "lazy"} // Primele 3 imagini sunt eager
-									/>
-								</picture>
-								<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-									<p className="text-white text-lg font-medium">
-										{item.title}
-									</p>
-								</div>
+							<div className="relative aspect-square w-full overflow-hidden">
+								<ResponsiveImage
+									src={item.filename}
+									alt={item.title}
+									className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
+								/>
 							</div>
-							<div className="p-4 flex-grow">
-								<h3 className="text-base sm:text-lg font-medium text-gray-900">
+							<div className="p-3 sm:p-4">
+								<h3 className="text-sm sm:text-base font-semibold text-gray-800 mb-1 truncate">
 									{item.title}
 								</h3>
+								<p className="text-xs sm:text-sm text-gray-500">
+									{item.category}
+								</p>
 							</div>
 						</Card>
 					))}
 				</div>
-				{localImages.length > 12 && (
-					<div className="text-center mt-8 sm:mt-10">
-						<Button
-							variant="outline"
-							className="border-plumber-500 text-plumber-500 hover:bg-plumber-50 px-6 sm:px-8"
-						>
-							Vezi mai multe proiecte de instalații sanitare
-						</Button>
-					</div>
-				)}
+
+				<div className="text-center mt-10 sm:mt-12 section-fade delay-300">
+					<Button
+						size="lg"
+						className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+						asChild
+					>
+						<a href="#contact">
+							Solicită o ofertă personalizată pentru proiectul tău
+						</a>
+					</Button>
+				</div>
 			</div>
 		</section>
 	);
 };
+
+export default GallerySection;
