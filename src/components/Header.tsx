@@ -101,8 +101,8 @@ const Header = () => {
             <nav className={`${isScrolled ? "text-gray-700" : "text-white"}`}>
               <ul className="flex space-x-6">
                 <li>
-                  <button 
-                    onClick={() => scrollToSection('services')} 
+                  <button
+                    onClick={() => scrollToSection('services')}
                     className="hover:text-plumber-500 transition-colors cursor-pointer"
                   >
                     Servicii
