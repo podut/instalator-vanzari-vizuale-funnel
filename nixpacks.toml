@@ -1,0 +1,11 @@
+# nixpacks.toml
+[variables]
+PORT = "3000"
+NODE_ENV = "production"
+NIXPACKS_SPA_OUTPUT_DIR = "publish"
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "serve -s publish -l 3000"
