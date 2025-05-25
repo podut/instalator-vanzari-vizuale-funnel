@@ -5,6 +5,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Switch } from './ui/switch';
 import { Separator } from './ui/separator';
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+declare const gtag: (...args: any[]) => void;
+
 interface CookieSettings {
   fundamental: boolean;
   functionality: boolean;
