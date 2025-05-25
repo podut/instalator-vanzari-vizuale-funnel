@@ -40,16 +40,17 @@ const setCacheHeaders = (req, res, next) => {
 // Aplică cache headers
 app.use(setCacheHeaders);
 
+// Healthcheck endpoint - TREBUIE să fie înaintea rutei catch-all
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Servește fișierele statice din directorul publish
 app.use(express.static(path.join(__dirname, 'publish')));
 
-// Pentru React Router - toate rutele să returneze index.html
+// Pentru React Router - toate rutele să returneze index.html (ULTIMĂ rută)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'publish', 'index.html'));
-});
-
-app.get('/health', (req, res) => {
-  res.status(200).send('OK');
 });
 
 app.listen(PORT, '0.0.0.0', () => {
