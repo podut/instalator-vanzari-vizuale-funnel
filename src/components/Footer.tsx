@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useHashNavigation } from "@/hooks/use-hash-navigation";
+import { Link } from "react-router-dom";
 import CookieSettingsLink from "./CookieSettingsLink";
 
 const Footer = () => {
@@ -63,11 +64,50 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-plumber-800 flex flex-col md:flex-row justify-between items-center">
+        {/* ANPC Links Section */}
+        <div className="mt-8 pt-6 border-t border-plumber-800">
+          <div className="flex items-center justify-center gap-8">
+            <a 
+              href="https://anpc.ro/ce-este-sal/" 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+              title="ANPC SAL - Soluționarea Alternativă a Litigiilor"
+            >
+              <img 
+                src="/anpc-sal.svg" 
+                alt="ANPC SAL - Soluționarea Alternativă a Litigiilor" 
+                className="h-12 w-auto"
+                loading="lazy"
+              />
+            </a>
+            
+            <a 
+              href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home.chooseLanguage" 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+              title="ANPC SOL - Soluționarea Online a Litigiilor"
+            >
+              <img 
+                src="/anpc-sol.svg" 
+                alt="ANPC SOL - Soluționarea Online a Litigiilor" 
+                className="h-12 w-auto"
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </div>
+        
+        <div className="mt-8 pt-6 border-t border-plumber-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-plumber-200">&copy; 2025 Instalații Sanitare Pro. Toate drepturile rezervate.</p>
           <div className="flex space-x-6 mt-4 md:mt-0 items-center">
-            <span className="text-plumber-200 cursor-not-allowed">Termeni și condiții</span>
-            <span className="text-plumber-200 cursor-not-allowed">Politica de confidențialitate</span>
+            <Link to="/termeni-si-conditii" className="text-plumber-200 hover:text-white transition-colors">
+              Termeni și condiții
+            </Link>
+            <Link to="/politica-de-confidentialitate" className="text-plumber-200 hover:text-white transition-colors">
+              Politica de confidențialitate
+            </Link>
             <CookieSettingsLink variant="footer" />
           </div>
         </div>

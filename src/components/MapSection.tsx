@@ -1,4 +1,3 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Card } from "@/components/ui/card";
 import { MapPin } from "lucide-react";
 import "leaflet/dist/leaflet.css";
@@ -27,24 +26,18 @@ const MapSection = () => (
       </div>
       <Card className="overflow-hidden border-none shadow-xl section-fade delay-100">
         <div className="h-96 w-full">
-          <MapContainer
-            center={center}
-            zoom={17}
-            style={{ height: "100%", width: "100%" }}
-            className="h-full w-full"
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={center}>
-              <Popup>
-                Instalații Sanitare Pro
-                <br />
-                Strada Gutinului nr 5, Baia Sprie
-              </Popup>
-            </Marker>
-          </MapContainer>
+          <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              title="Locație InstalatorPro"
+              src="https://www.google.com/maps?q=Strada+Gutinului+nr+5,+Baia+Sprie,+Maramureș,+România&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </Card>
     </div>

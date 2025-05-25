@@ -53,12 +53,29 @@ const ContactSection = () => {
     },
   });
 
-  const onSubmit = (values: FormValues) => {
+  const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+    // Preiau valoarea honeypot-ului
+    const formData = new FormData(formRef.current!);
+    const contact_time = formData.get("contact_time")?.toString() || "";
+    if (contact_time) {
       setIsSubmitting(false);
+      return; // Bot detected, nu trimite nimic
+    }
+    // Trimite datele către webhook n8n
+    try {
+      await fetch("https://n8n.ruggedradiance.shop/webhook-test/cerere-instalatie", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          message: values.message,
+          serviceType: values.serviceType,
+          contact_time
+        })
+      });
       toast({
         title: "Mesaj trimis cu succes!",
         description: "Te vom contacta în cel mai scurt timp.",
@@ -70,7 +87,15 @@ const ContactSection = () => {
         ),
       });
       form.reset();
-    }, 1500);
+    } catch (e) {
+      toast({
+        title: "Eroare la trimitere!",
+        description: "Vă rugăm să încercați din nou sau să ne contactați telefonic.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -104,6 +129,15 @@ const ContactSection = () => {
           <div className="section-fade">
             <Form {...form}>
               <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
+                {/* Honeypot field for bots */}
+                <input
+                  type="text"
+                  name="contact_time"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute opacity-0 pointer-events-none left-0 top-0 w-1 h-1"
+                />
                 <FormField
                   control={form.control}
                   name="name"

@@ -19,15 +19,16 @@ const TermsAndConditions = () => {
     };
   }, []);
 
-  return (
-    <div className="min-h-screen bg-white">
-      <Header />
+  return (    <div className="min-h-screen bg-white">
+      <Header showBackArrow />
       <main className="pt-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Termeni și Condiții</h1>
-          
-          <div className="prose prose-lg max-w-none">
-            <section className="mb-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Termeni și Condiții</h1>
+            <p className="text-lg text-gray-600">Servicii profesionale de instalații sanitare</p>
+          </div>            <div className="bg-white shadow-lg rounded-lg p-8 lg:p-12">
+            <div className="prose prose-lg max-w-none">
+            <section className="mb-8 text-center">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">1. Informații Generale</h2>
               <p className="text-gray-600 mb-4">
                 Acești termeni și condiții guvernează utilizarea serviciilor oferite de <strong>Instalator Pro</strong>, 
@@ -130,7 +131,7 @@ const TermsAndConditions = () => {
               <p className="text-sm text-gray-500">
                 <strong>Ultima actualizare:</strong> 25 mai 2025
               </p>
-            </section>
+            </section>            </div>
           </div>
         </div>
       </main>

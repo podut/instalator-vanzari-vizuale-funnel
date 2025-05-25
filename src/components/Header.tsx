@@ -1,31 +1,40 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, ArrowLeft } from "lucide-react";
 import { useSwipeable } from "react-swipeable";
 import { useHashNavigation } from "@/hooks/use-hash-navigation";
 
-const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+interface HeaderProps {
+  showBackArrow?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ showBackArrow = false }) => {
+  if (showBackArrow) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-white shadow py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => window.history.back()}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors mr-2"
+              aria-label="Înapoi"
+            >
+              <ArrowLeft className="h-6 w-6 text-gray-700" />
+            </button>
+            <a href="/" className="font-bold text-2xl">
+              <span className="text-blue-700">Instalator</span><span className="text-plumber-500">Pro</span>
+            </a>
+          </div>
+        </div>
+      </header>
+    );
+  }
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollToSection } = useHashNavigation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  // Close mobile menu when clicking outside or pressing escape
-  useEffect(() => {
+    // Close mobile menu when clicking outside or pressing escape
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       if (isMobileMenuOpen && !target.closest('.mobile-menu') && !target.closest('.mobile-menu-button')) {
@@ -48,8 +57,8 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
+    // Prevent body scroll when mobile menu is open
     if (isMobileMenuOpen) {
       document.body.style.position = 'fixed';
       document.body.style.width = '100%';
@@ -81,24 +90,18 @@ const Header = () => {
   });
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        isScrolled
-          ? "bg-white shadow py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-[100] bg-white border-b border-gray-200 shadow py-3 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <a href="/" className={`font-bold text-2xl ${isScrolled ? "text-plumber-700" : "text-white"}`}>
-              Instalator<span className="text-plumber-500">Pro</span>
+          <div className="flex items-center gap-2">
+            <a href="/" className="font-bold text-2xl">
+              <span className="text-blue-700">Instalator</span><span className="text-plumber-500">Pro</span>
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <nav className={`${isScrolled ? "text-gray-700" : "text-white"}`}>
+            <nav>
               <ul className="flex space-x-6">
                 <li>
                   <button
@@ -136,11 +139,7 @@ const Header = () => {
             </nav>
 
             <Button 
-              className={`flex items-center ${
-                isScrolled 
-                  ? "bg-plumber-500 hover:bg-plumber-600 text-white" 
-                  : "bg-white hover:bg-gray-100 text-plumber-700"
-              }`}
+              className="flex items-center bg-plumber-500 hover:bg-plumber-600 text-white"
               onClick={() => window.location.href = 'tel:0757695950'}
             >
               <Phone className="mr-2 h-4 w-4" />
@@ -152,9 +151,7 @@ const Header = () => {
           <div className="md:hidden relative z-[101] -mr-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`mobile-menu-button p-3 rounded-md active:bg-gray-100/20 transition-colors ${
-                isScrolled ? "text-gray-700" : "text-white"
-              }`}
+              className={`mobile-menu-button p-3 rounded-md active:bg-gray-100/20 transition-colors`}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
