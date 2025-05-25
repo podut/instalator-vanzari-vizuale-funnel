@@ -64,7 +64,7 @@ const ContactSection = () => {
     }
     // Trimite datele către webhook n8n
     try {
-      await fetch("https://n8n.ruggedradiance.shop/webhook-test/cerere-instalatie", {
+      await fetch("https://n8n.ruggedradiance.shop/webhook/cerere-instalatie", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
