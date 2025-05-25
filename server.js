@@ -48,6 +48,12 @@ app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
+// Google Search Console verification file
+app.get('/google5a761ccf53c4a924.html', (req, res) => {
+  res.type('text/html');
+  res.send('google-site-verification: google5a761ccf53c4a924.html');
+});
+
 // Servește fișierele statice din directorul publish
 app.use(express.static(path.join(__dirname, 'publish')));
 
