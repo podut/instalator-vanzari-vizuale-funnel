@@ -2,6 +2,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 
 const CallToAction = () => {
+  const scrollToContact = () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="bg-plumber-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -21,7 +28,11 @@ const CallToAction = () => {
               <Phone className="mr-2 h-5 w-5" />
               Sună acum: 0757 695 950
             </Button>
-            <Button size="lg" className="bg-plumber-700 hover:bg-plumber-800 text-white border border-white/20">
+            <Button 
+              size="lg" 
+              className="bg-plumber-700 hover:bg-plumber-800 text-white border border-white/20"
+              onClick={scrollToContact}
+            >
               Cere ofertă gratuită
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

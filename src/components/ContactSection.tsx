@@ -149,6 +149,7 @@ const ContactSection = () => {
                         <Input 
                           placeholder="Numele dvs." 
                           className="w-full" 
+                          autoComplete="name"
                           {...field} 
                         />
                       </FormControl>
@@ -169,6 +170,7 @@ const ContactSection = () => {
                             type="email" 
                             placeholder="exemplu@gmail.com" 
                             className="w-full" 
+                            autoComplete="email"
                             {...field} 
                           />
                         </FormControl>
@@ -187,6 +189,7 @@ const ContactSection = () => {
                             type="tel" 
                             placeholder="07XX XXX XXX" 
                             className="w-full" 
+                            autoComplete="tel"
                             {...field} 
                           />
                         </FormControl>
@@ -205,6 +208,7 @@ const ContactSection = () => {
                       <FormControl>
                         <select 
                           className="w-full border border-gray-300 rounded-md p-2 text-base"
+                          autoComplete="off"
                           {...field}
                         >
                           <option value="instalare">Instalare</option>
@@ -230,6 +234,7 @@ const ContactSection = () => {
                           placeholder="Descrieți problema sau serviciul de care aveți nevoie"
                           rows={5}
                           className="w-full"
+                          autoComplete="off"
                           {...field}
                         />
                       </FormControl>
